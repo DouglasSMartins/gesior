@@ -38,7 +38,7 @@ $config['site']['info_bar_active'] = true;
 
 # Using Ajax Field Validation, this is important if you want to use ajax check in your create account.
 $config['site']['sqlHost'] = "IP_BD";
-$config['site']['sqlUser'] = "USER_BR";
+$config['site']['sqlUser'] = "USER_BD";
 $config['site']['sqlPass'] = "PASSWORD_BD";
 $config['site']['sqlBD'] = "BD_NAME";
 
