@@ -992,6 +992,43 @@ CREATE TABLE IF NOT EXISTS `tile_store` (
 -- --------------------------------------------------------
 
 --
+-- Table structure `prey_slots`
+--
+
+CREATE TABLE IF NOT EXISTS `prey_slots` (
+  `player_id` int(11) NOT NULL,
+  `num` smallint(2) NOT NULL,
+  `state` smallint(2) NOT NULL DEFAULT '1',
+  `unlocked` tinyint(1) NOT NULL DEFAULT '0',
+  `current` varchar(40) NOT NULL DEFAULT '',
+  `monster_list` varchar(360) NOT NULL,
+  `free_reroll_in` int(11) NOT NULL DEFAULT '0',
+  `time_left` smallint(5) NOT NULL DEFAULT '0',
+  `next_use` int(11) NOT NULL DEFAULT '0',
+  `bonus_type` smallint(3) NOT NULL,
+  `bonus_value` smallint(3) NOT NULL DEFAULT '0',
+  `bonus_grade` smallint(3) NOT NULL DEFAULT '0',
+  INDEX `player_id` (`player_id`),
+  CONSTRAINT `prey_slots_players_fk`
+    FOREIGN KEY (`player_id`) REFERENCES `players` (`id`)
+    ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+--
+-- Table structure `player_charms`
+--
+
+CREATE TABLE `player_charms` (
+  `id` int(11) NOT NULL,
+  `player_id` int(11) NOT NULL,
+  `charm` VARCHAR(20),
+  `monster` VARCHAR(20)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `z_forum`
 --
 
