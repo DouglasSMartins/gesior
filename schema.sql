@@ -47,7 +47,7 @@ CREATE TABLE IF NOT EXISTS `accounts` (
   `lastday` int(10) UNSIGNED NOT NULL DEFAULT '0',
   `email` varchar(255) NOT NULL DEFAULT '',
   `creation` int(11) NOT NULL DEFAULT '0',
-  `vote` int(11) NOT NULL DEFAULT '0',
+  `vote` int(11) NOT NULL,
   `key` varchar(20) NOT NULL DEFAULT '0',
   `email_new` varchar(255) NOT NULL DEFAULT '',
   `email_new_time` int(11) NOT NULL DEFAULT '0',
