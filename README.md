@@ -18,10 +18,22 @@ sudo chmod -R 777 /cache
 ```
 * Utilizar o schema.sql disponibilizado neste repositório, ele já está pronto para rodar no servidor da OTServerBR.
 * Editar o install.txt e colocar o seu ip para que você consiga instalar o site.
-* Para que seja possivel criar conta, no momento que subir o banco é preciso usando o usuario root rodar o seguinte comando para que funcione a criação de contas.
+* Edite o docker-compose.yml e adicione o seguinte parametro = command: mysqld --sql_mode="" ficando assim.
 
+Antes:
 ```bash
-docker exec -it otdb mysql -u root -p -e 'SET GLOBAL sql_mode = '';' otserver
+otdb:
+    container_name: otdb
+    image: mariadb:10
+    environment:
+```
+Depois:
+```bash
+otdb:
+    container_name: otdb
+    image: mariadb:10
+    command: mysqld --sql_mode=""
+    environment:
 ```
 
 
