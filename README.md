@@ -1,72 +1,32 @@
 ## Gesior-AAC
 
-#### EN
-* Welcome to the installation tutorial.
-* Remembering that the Project itself is not my own, it has several participants.
-* This is a Stable version of the product, this does not leave it free of bugs.
-* If you find bugs or are interested in developing some new functionality feel free to open an Issue.
-* without further ado follows the tutorial.
+#### PT
+* Gesior com layout do tibia global atual(2020).
+* Site configurado para rodar com o servidor desenvolvido pela OTServerBR.
+* Antes de qualquer coisa siga o tutorial.
  
  
-## Installation
-
-### Requirements
-
-* [Apache](http://www.apache.org/) with [mod_rewrite](http://httpd.apache.org/docs/current/mod/mod_rewrite.html) enabled + [PHP](http://php.net) Version 5.6 or newer
+## Installation in docker
 
 ### How to install
 
-* Clone the Gesior-ACC From GitHub.
-* change the permission for write in /cache.
+* Faça download do projeto e descompacte na pasta web do projeto.
+* De permissão a pasta.
 
-```bash
+```
 sudo chmod -R 777 /cache
 ```
+* Utilizar o schema.sql disponibilizado neste repositório, ele já está pronto para rodar no servidor da OTServerBR.
+* Editar o install.txt e colocar o seu ip para que você consiga instalar o site.
+* Para que seja possivel criar conta, no momento que subir o banco é preciso usando o usuario root rodar o seguinte comando para que funcione a criação de contas.
 
-
-### Tips and Tricks
-
-* This website have some security implements, here you can use apache2 to apply them.
-* run these commands to maximize your security.
-````bash
-sudo a2enmod headers
-sudo a2enmod rewrite 
-````
-* on ubuntu 16.06 or 14.04 go to apache folder and edit your config.
-* run:
-````bash
-sudo vim /etc/apache2/apache2.conf 
-````
-and search for something like this: 
-```markdown
-<Directory PATH_TO_YOUR_WEBSITE>
-        Options Indexes FollowSymLinks
-        AllowOverride All
-        Require all granted         
-</Directory>
-```
-
-* and add something like this /\
-
-### PHP NEEDS THAT FOLLOWING
 ```bash
-sudo apt-get install php5-gd
-sudo apt-get install php5-curl
+docker exec -it otdb mysql -u root -p -e 'SET GLOBAL sql_mode = '';' otserver
 ```
 
-Make sure curl is enabled in the php.ini file. For me it's in /etc/php5/apache2/php.ini, if you can't find it, this line might be in /etc/php5/conf.d/curl.ini. Make sure the line :
-extension=curl.so
-
-now restart apache.:
-```bash
-sudo /etc/init.d/apache2 restart
-```
-or
-```bash
-sudo service apache2 restart
-```
 
 ## CREDITS
+@DouglasSMartins<br>
 @marcomoa <br>
 @gesior <br>
 @talistf <br>
