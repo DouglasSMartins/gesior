@@ -6,9 +6,9 @@
 * Antes de qualquer coisa siga o tutorial.
  
  
-## Installation in docker
+## Instalando com docker
 
-### How to install
+### Como instalar
 
 * Faça download do projeto e descompacte na pasta web do projeto.
 * De permissão a pasta.
@@ -25,7 +25,7 @@ docker exec -it otdb mysql -u root -p -e 'SET GLOBAL sql_mode = '';' otserver
 ```
 
 
-## CREDITS
+## CREDITOS
 @DouglasSMartins<br>
 @marcomoa <br>
 @gesior <br>
