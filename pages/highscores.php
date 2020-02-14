@@ -110,7 +110,7 @@ switch ($vocation) {
 $limit = 25;  //limite players por de pagina
 $offset = 0 * $limit;
 $limitOffsetAll = 300; //Limita a quantidade maxima de players no rank
-$grupacc = "1,2"; //Seleciona os grupos de class que irão aparecer no rank
+$grupacc = "1,2,3"; //Seleciona os grupos de class que irão aparecer no rank
 if ($_REQUEST['page'] && $_REQUEST['page'] > 0) {
     $offset = (intval($_REQUEST['page']) - 1) * $limit;
 }
