@@ -35,7 +35,10 @@ otdb:
     command: mysqld --sql_mode=""
     environment:
 ```
-
+* Adicionar o seguinte parametro no config.lua:
+```bash
+passwordType = "sha1"
+```
 
 ## CREDITOS
 @DouglasSMartins<br>
