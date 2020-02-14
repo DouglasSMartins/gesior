@@ -88,8 +88,8 @@ INSERT INTO `accounts` (`id`, `name`, `password`, `secret`, `type`, `premdays`, 
 -- Create Account GOD/god
 --
 
-INSERT INTO `accounts` (`id`, `name`, `password`, `type`) VALUES
-(2, 'GOD', '21298df8a3277357ee55b01df9530b535cf08ec1', 5);
+INSERT INTO `accounts` (`id`, `name`, `password`, `type`, `page_access`) VALUES
+(2, 'GOD', '21298df8a3277357ee55b01df9530b535cf08ec1', 5, 6);
 
 -- --------------------------------------------------------
 --
