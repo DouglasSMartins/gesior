@@ -191,10 +191,10 @@ $config['site']['news_limit'] = 6;
 $config['site']['last_deaths_limit'] = 40;
 
 # PAGE: team.php
-$config['site']['groups_support'] = array(2, 3, 4, 5);
+$config['site']['groups_support'] = array(2, 3, 4, 5, 6);
 
 # PAGE: highscores.php
-$config['site']['groups_hidden'] = array(3, 4, 5);
+$config['site']['groups_hidden'] = array(3, 4, 5, 6);
 $config['site']['accounts_hidden'] = array(1);
 
 # PAGE: lostaccount.php
