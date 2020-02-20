@@ -1,4 +1,4 @@
-<?php
+|<?php
 if(!defined('INITIALIZED'))
 	exit;
 //var_dump($config['server']);
@@ -68,7 +68,7 @@ $news_content .= '
 							<img src="'.$layout_name.'/images/news/announcement.gif" width="150" height="100" border="0" alt="">
 						</div>
                     <div style="position: relative; top: -9px; margin-bottom: 10px;"><br>
-				 <font size="2px"></font><center><font size="2px"><b> IP:</b> tibia.com |&nbsp;  <b>Port:</b> 7171 |&nbsp;  <b>Version:</b> 10 and 12</font> <br> </a></center><br><font size="2px"><b>'.$config['server']['serverName'].'</b> - <a href="?subtopic=serverinfo" <b="">Server Info</a> - <small>(learn to do <b><a href="?subtopic=serverinfo&action=tutorialdonate" <b="">Donate</a></b> and use our <b><a href="?subtopic=serverinfo&action=tutorialshop" <b="">Shop Online</a></b>)</small> <br><br> Bem-vindo ao <b><font color="green">'.$config['server']['serverName'].'</font></b>, contamos com o mapa mais completo de todos os servidores atualmente, Magias de Tempo de Recarga e Retrabalhado para um PvP mais dinâmico e divertido.<br>Venha conferir o melhor servidor de todos os tempos! <br><center><a href="?subtopic=createaccount" <b="">Crie sua conta agora</a> aqui sua diversão é garantida!</center>
+				 <font size="2px"></font><center><font size="2px"><b> IP:</b> tibia.com |&nbsp;  <b>Port:</b> 7171 |&nbsp;  <b>Version:</b> 10 and 12</font> <br> </a></center><br><font size="2px"><b>'.$config['server']['serverName'].'</b> - <a href="?subtopic=serverinfo" <b="">Server Info</a> - <small>(learn to do <b><a href="?subtopic=serverinfo&action=tutorialdonate" <b="">Donate</a></b> and use our <b><a href="?subtopic=serverinfo&action=tutorialshop" <b="">Shop Online</a></b>)</small> <br><br> Bem-vindo ao <b><font color="green">'.$config['server']['serverName'].'</font></b>, contamos com o mapa mais completo de todos os servidores atualmente, cooldown e magias ajustadas para um PvP mais dinâmico e divertido.<br>Venha conferir o melhor servidor de todos os tempos! <br><center><a href="?subtopic=createaccount" <b="">Crie sua conta agora</a> aqui sua diversão é garantida!</center>
                 </font> </div>
 						</div>
       				</div>
@@ -230,35 +230,4 @@ function showPost($topic, $text, $smile)
 
 //Here start news
 	$last_threads = filter_var($last_threads, FILTER_SANITIZE_STRING);
-	$last_threads = $SQL->query('SELECT ' . $SQL->tableName('players') . '.' . $SQL->fieldName('name') . ', ' . $SQL->tableName('z_forum') . '.' . $SQL->fieldName('post_text') . ', ' . $SQL->tableName('z_forum') . '.' . $SQL->fieldName('post_topic') . ', ' . $SQL->tableName('z_forum') . '.' . $SQL->fieldName('icon_id') . ', ' . $SQL->tableName('z_forum') . '.' . $SQL->fieldName('news_icon') . ', ' . $SQL->tableName('z_forum') . '.' . $SQL->fieldName('post_smile') . ', ' . $SQL->tableName('z_forum') . '.' . $SQL->fieldName('id') . ', ' . $SQL->tableName('z_forum') . '.' . $SQL->fieldName('replies') . ', ' . $SQL->tableName('z_forum') . '.' . $SQL->fieldName('post_date') . ' FROM ' . $SQL->tableName('players') . ', ' . $SQL->tableName('z_forum') . ' WHERE ' . $SQL->tableName('players') . '.' . $SQL->fieldName('id') . ' = ' . $SQL->tableName('z_forum') . '.' . $SQL->fieldName('author_guid') . ' AND ' . $SQL->tableName('z_forum') . '.' . $SQL->fieldName('section') . ' = 1 AND ' . $SQL->tableName('z_forum') . '.' . $SQL->fieldName('first_post') . ' = ' . $SQL->tableName('z_forum') . '.' . $SQL->fieldName('id') . ' ORDER BY ' . $SQL->tableName('z_forum') . '.' . $SQL->fieldName('post_date') . ' DESC LIMIT ' . $config['site']['news_limit'])->fetchAll();
-	
-    if(isset($last_threads[0]))
-    {
-        foreach($last_threads as $thread)
-        {
-            $main_content .= '
-				<div class="NewsHeadline">
-					<div class="NewsHeadlineBackground" style="background-image:url('.$layout_name.'/images/global/content/newsheadline_background.gif)">
-						<img src="'.$layout_name.'/images/global/content/'.$thread['news_icon'].'.gif" class="NewsHeadlineIcon" alt=\'\' />
-						<div class="NewsHeadlineDate">'.date('M d Y', $thread['post_date']).' -</div>
-    					<div class="NewsHeadlineText">'.htmlspecialchars($thread['post_topic']).'</div>
-					</div>
-				</div>
-				<table style=\'clear:both\' border=0 cellpadding=0 cellspacing=0 width=\'100%\'>
-				<tr>';
-            $main_content .= '
-				<td style=\'padding-left:10px;padding-right:10px;\' >' . showPost('', $thread['post_text'], $thread['post_smile']) . '<br>';
-			if($group_id_of_acc_logged >= $config['site']['access_admin_panel'])
-				$main_content .= '
-					<p align="right"><a href="?subtopic=forum&action=edit_post&id=' . $thread['id'] . '">» Edit this news</a></p>';
-				$main_content .= '
-					<p align="right"><a href="?subtopic=forum&action=show_thread&id=' . $thread['id'] . '">» Comment on this news</a></p>
-				</td>';
-        
-			$main_content .= '
-			</tr>
-		</table><br />';
-		}
-    }
-    else
-        $main_content .= '';
+	$last_threads = $SQL->query('SELECT ' . $SQL->tableName('players') . '.' . $SQL->fieldName('name') . ', ' . $SQL->tableName('z_forum') . '.' . $SQL->fieldName('post_text') . ', ' . $SQL->tableName('z_forum') . '.' . $SQL->fieldName('post_topic') . ', ' . $SQL->tableName('z_forum') . '.' . $SQL->fieldName('icon_id') . ', ' . $SQL->tableName('z_forum') . '.' . $SQL->fieldName('news_icon') . ', ' . $SQL->tableName('z_forum') . '.' . $SQL->fieldName('post_smile') . ', ' . $SQL->tableName('z_forum') . '.' . $SQL->fieldName('id') . ', ' . $SQL->tableName('z_forum') . '.' . $SQL->fieldName('replies') . ', ' . $SQL->tableName('z_forum') . '.' . $SQL->fieldName('post_date') . ' FROM ' . $SQL->tableName('players') . ', ' . $SQL->tableName('z_forum') . ' WHERE ' . $SQL->tableName('players') . '.' . $SQL->fieldName('id') . ' = ' . $SQL->tableName('z_forum') . '.' . $SQL->fieldName('author_guid') . ' AND ' . $SQL->tableName('z_forum') . '.' . $SQL->fieldName('section') . ' = 1 AND ' . $SQL->tableName('z_forum') . '.' . $SQL->fieldName('fir
